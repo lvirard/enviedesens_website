@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Envie de Sens - Bilan de compétences & Accompagnement professionnel</title>
+  <meta name="description" content="Bilan de compétences personnalisé pour retrouver sens et projet professionnel. Accompagnement individuel certifié Qualiopi.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+  <div class="decor-top" aria-hidden="true"></div>
+  <div class="decor-bottom" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <img src="public/images/logo.png"
+         alt="Envie de sens - Bilan de compétences et orientation" width="50" height="50">
+        <span class="logo-text">Envie de Sens</span>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#presentation">Présentation</a></li>
+          <li><a href="#qui">Qui je suis</a></li>
+          <li><a href="#offres">Offres</a></li>
+          <li><a href="#temoignages">Témoignages</a></li>
+          <li><a href="#financement">Financement</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="presentation" class="hero">
+      <div class="hero-content">
+        <h1>Pour retrouver sens et projet professionnel</h1>
+        <p>Vous vous posez des questions sur votre parcours ?<br>
+        Vous souhaitez faire le point sur vos compétences ?<br>
+        <strong>Je vous accompagne avec bienveillance.</strong></p>
+        <a href="#contact" class="btn-primary">Prendre RDV gratuit</a>
+      </div>
+    </section>
+
+    <section id="qui" class="section">
+      <div class="container">
+        <h2>Qui je suis</h2>
+        <div class="qui-grid">
+          <div class="portrait-placeholder">
+            <img src="public/images/portrait.png" alt="Portrait professionnel" loading="lazy">
+          </div>
+          <div class="qui-text">
+            <p>Texte sur votre parcours, vos formations, votre approche unique et bienveillante.</p>
+            <ul>
+              <li>Certification Qualiopi</li>
+              <li>Accompagnement individuel</li>
+              <li>CPF éligible</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offres" class="section offres">
+      <div class="container">
+        <h2>Mes offres</h2>
+        <div class="offres-grid">
+          <article class="offre-card">
+            <div class="card-front">
+              <h3>Bilan essentiel</h3>
+              <p>Découverte rapide de vos compétences et envies</p>
+              <div class="offre-price">À partir de 800€</div>
+            </div>
+
+            <div id="detail-essentiel" class="card-back" hidden>
+              <h3>Bilan essentiel</h3>
+              <ul>
+                <li>4 séances individuelles</li>
+                <li>Tests et exercices</li>
+                <li>Synthèse écrite</li>
+              </ul>
+              <a href="#contact" class="btn-secondary">Me contacter</a>
+            </div>
+
+            <button class="card-flip btn-details"
+                    aria-expanded="false"
+                    aria-controls="detail-essentiel">
+              Détails
+            </button>
+          </article>
+
+          <article class="offre-card">
+            <div class="card-front">
+              <h3>Bilan approfondi</h3>
+              <p>Transformation complète de votre projet</p>
+              <div class="offre-price">À partir de 1500€</div>
+            </div>
+            <div id="detail-approfondi" class="card-back" hidden>
+              <h3>Bilan approfondi</h3>
+              <ul>
+                <li>8 séances approfondies</li>
+                <li>Coaching projet</li>
+                <li>Suivi post-bilan</li>
+              </ul>
+              <a href="#contact" class="btn-secondary">Me contacter</a>
+            </div>
+            <button class="card-flip btn-details" 
+                    aria-expanded="false"
+                    aria-controls="detail-approfondi">
+              Détails
+            </button>
+          </article>
+
+          <article class="offre-card future">
+            <div class="card-front">
+              <h3>Orientation jeunes</h3>
+              <p><em>Bientôt disponible</em></p>
+              <div class="offre-price">À venir</div>
+            </div>
+            <div id="detail-jeunes" class="card-back" hidden>
+              <p>Accompagnement dédié aux lycéens et étudiants.</p>
+              <a href="#contact" class="btn-secondary">Me prévenir</a>
+            </div>
+            <button class="card-flip btn-details" 
+                    aria-expanded="false" 
+                    aria-controls="detail-jeunes">
+              Détails
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="temoignages" class="section">
+      <div class="container">
+        <h2>Témoignages</h2>
+        <div class="carousel">
+          <button class="carousel-btn prev" aria-label="Témoignage précédent">‹</button>
+          
+          <div class="carousel-track">
+            <blockquote class="testimonial actif">
+              <img src="public/images/portaits_temoignages/user-icon.png" alt="Photo de Marie" loading="lazy">
+              <div class="testimonial-content">
+                <p>"Ce bilan a été une vraie révélation pour moi. J'ai enfin compris ce que je voulais vraiment faire."</p>
+                <cite>Marie, 38 ans</cite>
+              </div>
+            </blockquote>
+            
+            <blockquote class="testimonial">
+              <img src="public/images/portaits_temoignages/user-icon.png" alt="Photo de Julien" loading="lazy">
+              <div class="testimonial-content">
+                <p>"Un accompagnement bienveillant et très professionnel. Je recommande les yeux fermés."</p>
+                <cite>Julien, 42 ans</cite>
+              </div>
+            </blockquote>
+            
+            <!-- Ajoute autant que tu veux -->
+          </div>
+          
+          <button class="carousel-btn next" aria-label="Témoignage suivant">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="financement" class="section">
+      <div class="container">
+        <h2>Financement</h2>
+        <p>CPF, Pôle Emploi, employeur, financement personnel. <strong>Entretien découverte gratuit</strong> pour faire le point sur vos possibilités.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <form class="contact-form">
+          <div class="contact-direct">
+            <p><strong>📧</strong> contact@enviedesens.fr</p>
+            <p><strong>📱</strong> 06 XX XX XX XX</p>
+            <p>Présentiel à [Ville] ou visio partout en France</p>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Nom" required>
+            <input type="text" placeholder="Prénom" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Téléphone">
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Votre message" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Envoyer</button>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Envie de Sens | <a href="#">CGV</a> | Certifié Qualiopi | CPF éligible</p>
+    </div>
+  </footer>
+
+  <script src="public/js/main.js"></script>
+</body>
+</html>
