@@ -33,6 +33,9 @@ main {
 h1, h2, h3 {
   font-weight: 600; /* ou 700 pour plus d'impact */
 }
+strong {
+  font-weight: 600;
+}
 
 /* Header qui se cache */
 .header {
@@ -105,6 +108,27 @@ h1, h2, h3 {
   font-size: 1.3rem; 
   max-width: 600px;
   margin: 0 auto 2rem;
+}
+
+.liste-fleches {
+  list-style: none;
+  padding-left: 0.5rem;      
+  margin: 0.5rem 0 0;        
+}
+
+.liste-fleches li {
+  position: relative;
+  margin: 0;
+  padding-left: 1rem;        
+}
+
+.liste-fleches li::before {
+  content: "➜";               
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #444;              
+  font-weight: 600;
 }
 
 /* Boutons */
@@ -487,6 +511,106 @@ h2 {
     margin: 0 1rem;
   }
 }
+
+/* Footer */
+.site-footer {
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr);
+  gap: 2rem;
+  align-items: start;
+  font-size: 0.95rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: start;
+  gap: 0.8rem;
+}
+
+.footer-brand img {
+  width: 60px;
+  height: auto;
+}
+
+.footer-title .marque {
+  display: block;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.footer-title .baseline {
+  display: block;
+  font-size: 0.85rem;
+  color: #667085;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.footer-nav a {
+  color: var(--texte);
+  text-decoration: none;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.footer-certifs {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footer-qualiopi img {
+  max-width: 100px;
+  height: auto;
+  margin-top: 0.2rem;
+  background: #fff; /* important pour respecter la charte */
+  padding: 0.3rem;
+}
+
+.footer-copy {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-brand,
+  .footer-certifs {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-nav {
+    align-items: center;
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
