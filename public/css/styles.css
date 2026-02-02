@@ -113,13 +113,13 @@ strong {
 .liste-fleches {
   list-style: none;
   padding-left: 0.5rem;      
-  margin: 0.5rem 0 0;        
+  margin: 0.5rem 0 0;    
 }
 
 .liste-fleches li {
   position: relative;
   margin: 0;
-  padding-left: 1rem;        
+  padding-left: 1.5rem;        
 }
 
 .liste-fleches li::before {
@@ -205,7 +205,7 @@ h2 {
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   transition: transform 0.5s;
-  background: white;
+  background: whitesmoke;
 }
 
 .offre-card:hover { 
@@ -216,8 +216,17 @@ h2 {
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  min-height: 340px;
+}
+
+.offre-bottom {
+  margin-top: auto;                 /* pousse en bas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  min-height: 200px;
+  gap: 1rem;
 }
 
 .card-back {
@@ -226,14 +235,12 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #ffffff;
   border-top: 1px solid #eee;
 }
 
 .card-back[hidden] {
   display: none; /* Remplace hidden pour être sûr */
 }
-
 
 .card-flip {
   margin: 1.5rem auto 1rem; /* centre horizontalement */
@@ -258,16 +265,6 @@ h2 {
   font-weight: bold;
   color: var(--orange);
   margin-top: auto;
-}
-
-.future .card-front {
-  background: linear-gradient(135deg, var(--bleu), var(--orange));
-  color: white;
-}
-
-.future .card-back {
-  background: white !important;
-  color: var(--texte);
 }
 
 .card-flip:hover {
