@@ -208,6 +208,18 @@ h2 {
   background: whitesmoke;
 }
 
+.offre-cpf {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  text-decoration: none;
+}
+
+.offre-cpf img {
+  max-width: 60px;
+  margin-right: 10px;
+}
+
 .offre-card:hover { 
   transform: translateY(-10px); 
 }
@@ -217,7 +229,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  min-height: 340px;
+  min-height: 490px;
 }
 
 .offre-bottom {
@@ -575,7 +587,7 @@ h2 {
 }
 
 .footer-qualiopi img {
-  max-width: 100px;
+  max-width: 250px;
   height: auto;
   margin-top: 0.2rem;
   background: #fff; /* important pour respecter la charte */
