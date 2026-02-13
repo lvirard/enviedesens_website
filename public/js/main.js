@@ -1,3 +1,27 @@
+//Utilisation du header/footer pour les pages
+document.addEventListener("DOMContentLoaded", () => {
+
+  function loadPartial(url, placeholderId) {
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erreur de chargement : " + url);
+        }
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(placeholderId).innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  loadPartial("/partials/header.html", "header-placeholder");
+  loadPartial("/partials/footer.html", "footer-placeholder");
+
+});
+
 // Détails cartes
 document.querySelectorAll('.btn-details').forEach(btn => {
   console.log('btn trouvé', btn); 
