@@ -1,0 +1,45 @@
+name: CI - Tests HTML
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-html:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    - name: 📥 Checkout du code
+      uses: actions/checkout@v4
+    
+    - name: 🟢 Installation de Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: 📦 Installation des dépendances
+      run: npm ci
+    
+    - name: 🧪 Exécution des tests
+      run: npm test
+    
+    - name: 📊 Génération du rapport de couverture
+      if: matrix.node-version == '20.x'
+      run: npm run test:coverage
+    
+    - name: ✅ Rapport de succès
+      if: success()
+      run: echo "✅ Tous les tests sont passés ! Le HTML est valide."
+    
+    - name: ❌ Rapport d'échec
+      if: failure()
+      run: |
+        echo "❌ Des tests ont échoué. Le déploiement est bloqué."
+        echo "Veuillez vérifier la structure HTML avant de merger."

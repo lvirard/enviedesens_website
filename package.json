@@ -1,0 +1,26 @@
+{
+  "name": "envie-de-sens-tests",
+  "version": "1.0.0",
+  "description": "Tests CI pour le site Envie de Sens",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": ["html", "testing", "ci"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^24.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "*.html"
+    ]
+  }
+}
