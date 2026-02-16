@@ -1,4 +1,4 @@
-name: CI/CD - Tests HTML & Déploiement OVH
+name: CI/CD - Tests HTML & Déploiement
 
 on:
   push:
@@ -48,29 +48,32 @@ jobs:
   #job CD pour déployer sur github pages
   deploy:
     needs: test-html  
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' 
-    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     
-    # Permissions nécessaires pour GitHub Pages
+    # Configuration spécifique pour GitHub Pages
     permissions:
       contents: read
       pages: write
       id-token: write
     
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    
     steps:
       - name: 📥 Checkout du code
         uses: actions/checkout@v4
       
-      - name: 🚀 Déploiement sur GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 📋 Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: 📦 Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  
-          exclude_assets: |
-            .github
-            node_modules
-            tests
-            *.md
-            package*.json
-            *.sh
-          cname: enviedesens.com 
+          path: '.'
+      
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
