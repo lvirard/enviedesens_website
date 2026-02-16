@@ -1,0 +1,76 @@
+/* Hero simplifié pour pages statiques */
+.hero.hero--simple {
+  min-height: auto;
+  padding: 6rem 2rem 3rem;
+  text-align: center;
+  color: var(--bleu);
+}
+
+.hero.hero--simple .hero-content p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Section mentions / confidentialité */
+
+.section--legal {
+  background: rgba(255,255,255,0.95);
+  margin: 4rem 0;
+}
+
+.section--legal h2 {
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Blocs de texte juridiques */
+
+.legal-block {
+  margin-bottom: 2rem;
+}
+
+.legal-block:last-child {
+  margin-bottom: 0;
+}
+
+.legal-block h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--bleu);
+}
+
+.legal-block p {
+  margin-bottom: 0.75rem;
+}
+
+.legal-block a {
+  color: var(--bleu);
+  text-decoration: underline;
+}
+
+.legal-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.legal-list li {
+  margin-bottom: 0.3rem;
+}
+
+/* Responsive léger */
+
+@media (max-width: 768px) {
+  .hero.hero--simple {
+    padding-top: 5rem;
+  }
+
+  .section--legal h2 {
+    font-size: 1.6rem;
+  }
+
+  .legal-block h3 {
+    font-size: 1.1rem;
+  }
+}
