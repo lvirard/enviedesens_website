@@ -25,23 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
 // Détails cartes
 document.querySelectorAll('.btn-details').forEach(btn => {
   console.log('btn trouvé', btn); 
+  
   btn.addEventListener('click', () => {
+    const card = btn.closest('.offre-card');
     const id = btn.getAttribute('aria-controls');
     if (!id) return;
     
     const details = document.getElementById(id);
     if (!details) return;
-
-    const isOpen = !details.hasAttribute('hidden');
-
-
+    
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    
     if (isOpen) {
       // FERMER
+      card.classList.remove('is-expanded');
       details.setAttribute('hidden', '');
       btn.setAttribute('aria-expanded', 'false');
       btn.textContent = 'Détails';
     } else {
       // OUVRIR
+      card.classList.add('is-expanded');
       details.removeAttribute('hidden');
       btn.setAttribute('aria-expanded', 'true');
       btn.textContent = '↑ Fermer';

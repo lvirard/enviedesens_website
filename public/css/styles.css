@@ -98,10 +98,21 @@ strong {
   color: var(--bleu);
   padding: 2rem;
 }
+
+.hero-content {
+  max-width: 75%; 
+  width: 100%;
+  margin: 0 auto;
+}
+
 .hero h1 {
   font-size: clamp(2rem, 5vw, 4rem);
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero h2 {
+  font-size: clamp(1.7rem, 4vw, 3rem);
 }
 .hero p { 
   font-size: 1.3rem; 
@@ -191,11 +202,12 @@ h2 {
   border-radius: 20px;
 }
 
-/* Cartes offres */
+/* OFFRES */
 .offres-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  align-items: start;
 }
 
 .offre-card {
@@ -205,6 +217,46 @@ h2 {
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   transition: transform 0.5s;
   background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.offre-card:hover { 
+  transform: translateY(-10px); 
+}
+
+.offre-card.is-expanded {
+  grid-row: span 2;
+  height: auto;
+}
+
+.card-front {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 490px;
+}
+
+.offre-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: space-between;*/
+  gap: 1rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.offre-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--orange);
+  margin-top: auto;
+  height: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 .offre-cpf {
@@ -212,6 +264,8 @@ h2 {
   flex-direction: row;
   align-items:center;
   text-decoration: none;
+  height: 60px;
+  justify-content: center;
 }
 
 .offre-cpf img {
@@ -219,38 +273,7 @@ h2 {
   margin-right: 10px;
 }
 
-.offre-card:hover { 
-  transform: translateY(-10px); 
-}
 
-.card-front {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  min-height: 490px;
-}
-
-.offre-bottom {
-  margin-top: auto;                 /* pousse en bas */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.card-back {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-top: 1px solid #eee;
-}
-
-.card-back[hidden] {
-  display: none; /* Remplace hidden pour être sûr */
-}
 
 .card-flip {
   margin: 1.5rem auto 1rem; /* centre horizontalement */
@@ -270,13 +293,6 @@ h2 {
   transition: all 0.2s;
 }
 
-.offre-price {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--orange);
-  margin-top: auto;
-}
-
 .card-flip:hover {
   background: #d96a00;
   transform: translateY(-1px);
@@ -290,6 +306,17 @@ h2 {
   background: #555;
 }
 
+.card-back {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+}
+
+.card-back[hidden] {
+  display: none; /* Remplace hidden pour être sûr */
+}
 /* Carousel */
 .carousel {
   position: relative;
@@ -580,7 +607,56 @@ h2 {
   .qui-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2rem; }
 }
+
 /* OFFRES */
+/* Écrans larges (desktop) : 3 colonnes */
+@media (min-width: 1200px) {
+  .offres-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Écrans moyens (14 pouces, petits laptops) : 2 colonnes */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .offres-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablettes en paysage : 2 colonnes */
+@media (max-width: 1024px) and (min-width: 768px) and (orientation: landscape) {
+  .offres-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablettes en portrait et smartphones : 1 colonne */
+@media (max-width: 767px) {
+  .offres-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card-front {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+  
+  .offre-bottom {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .card-back {
+    padding: 1.5rem;
+  }
+}
+
+/* Smartphones en paysage : 1 colonne */
+@media (max-width: 767px) and (orientation: landscape) {
+  .offres-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* TEMOIGNAGES */
 @media (max-width: 768px) {
