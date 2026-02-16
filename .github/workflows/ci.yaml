@@ -1,4 +1,4 @@
-name: CI - Tests HTML
+name: CI/CD - Tests HTML & Déploiement OVH
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
+  # Job CI pour tester la structure HTML
   test-html:
     runs-on: ubuntu-latest
     
@@ -43,3 +44,33 @@ jobs:
       run: |
         echo "❌ Des tests ont échoué. Le déploiement est bloqué."
         echo "Veuillez vérifier la structure HTML avant de merger."
+
+  #job CD pour déployer sur github pages
+  deploy:
+    needs: test-html  
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' 
+    runs-on: ubuntu-latest
+    
+    # Permissions nécessaires pour GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: 📥 Checkout du code
+        uses: actions/checkout@v4
+      
+      - name: 🚀 Déploiement sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  
+          exclude_assets: |
+            .github
+            node_modules
+            tests
+            *.md
+            package*.json
+            *.sh
+          cname: enviedesens.com 
