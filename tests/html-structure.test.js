@@ -71,6 +71,16 @@ describe('Tests de structure HTML', () => {
         expect(main).toBeTruthy();
       });
 
+      test('Balise <header> présente avec id="header"', () => {
+        const header = document.querySelector('header#header');
+        expect(header).toBeTruthy();
+      });
+
+      test('Balise <footer> présente avec id="footer"', () => {
+        const footer = document.querySelector('footer#footer');
+        expect(footer).toBeTruthy();
+      });
+
       test('Au moins une balise <section> présente', () => {
         const sections = document.querySelectorAll('section');
         expect(sections.length).toBeGreaterThan(0);
@@ -152,14 +162,6 @@ describe('Tests de structure HTML', () => {
 
     test('Section #contact existe', () => {
       expect(document.querySelector('section#contact')).toBeTruthy();
-    });
-
-    test('Div #header-placeholder existe', () => {
-      expect(document.querySelector('div#header-placeholder')).toBeTruthy();
-    });
-
-    test('Div #footer-placeholder existe', () => {
-      expect(document.querySelector('div#footer-placeholder')).toBeTruthy();
     });
 
     test('Toutes les cartes d\'offres ont les détails cachés', () => {
