@@ -249,22 +249,57 @@
     <section id="contact" class="section contact">
       <div class="container">
         <h2>Contact</h2>
-        <form class="contact-form">
+        <form id="contact-form" class="contact-form">
           <div class="contact-direct">
             <p><strong>📧</strong> contact@enviedesens.fr</p>
             <p><strong>📱</strong> 06 08 02 16 35</p>
-            <p>Présentiel à Béziers ou Montpellier ou visio partout en France</p>
+            <p>Présentiel à Béziers ou Montpellier et visio partout en France</p>
           </div>
           <div class="form-group">
-            <input type="text" placeholder="Nom" required>
-            <input type="text" placeholder="Prénom" required>
+            <input 
+              type="text" 
+              name="nom" 
+              placeholder="Nom*" 
+              required
+              minlength="2"
+              maxlength="50"
+              pattern="[A-Za-zÀ-ÿ\s\-]+"
+              title="Lettres, espaces et tirets uniquement">
+            <input 
+              type="text" 
+              name="prenom" 
+              placeholder="Prénom*" 
+              required
+              minlength="2"
+              maxlength="50"
+              pattern="[A-Za-zÀ-ÿ\s\-]+"
+              title="Lettres, espaces et tirets uniquement">
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Téléphone">
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Email*" 
+              required
+              maxlength="100">
+            <input 
+              type="tel" 
+              name="telephone" 
+              placeholder="Téléphone"
+              pattern="^(\+33\s?|0)[1-9](\s|\.|)(\d{2}\3){3}\d{2}$"
+              title="Format attendu : 0612345678, 06.12.34.56.78, 06 12 34 56 78 ou +33612345678">
           </div>
           <div class="form-group">
-            <textarea placeholder="Votre message" rows="5"></textarea>
+            <textarea 
+              name="message" 
+              placeholder="Votre message*" 
+              rows="5" 
+              required
+              minlength="10"></textarea>
+          </div>
+          <div style="display:none;">
+            <label for="honeypot">Laissez vide (bots only)</label>
+            <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
           </div>
           <button type="submit" class="btn-primary">Envoyer</button>
         </form>
@@ -274,7 +309,7 @@
   </main>
 
   <div id="footer-placeholder"></div>
-
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="public/js/main.js"></script>
 </body>
 </html>

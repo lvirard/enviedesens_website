@@ -199,18 +199,31 @@ burger?.addEventListener('click', () => {
   footerNav.classList.toggle('ouvert', !ouvert);
 });
 
-// Gestion du formulaire de contact
-// document.addEventListener("DOMContentLoaded", () => {
-//   const contactForm = document.querySelector(".contact-form");
+// Formulaire de contact
+emailjs.init("xM8ejh55iZpK1RgyW"); // clé publique dans ton compte EmailJS
 
-//   if (contactForm) {
-//     contactForm.addEventListener("submit", (e) => {
-//       e.preventDefault();
-      
-//       // Ici vous pourrez ajouter l'envoi du formulaire plus tard
-//       // Pour l'instant, juste un message
-//       alert("Merci pour votre message ! Nous vous recontacterons rapidement.");
-//       contactForm.reset();
-//     });
-//   }
-// });
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Vérification honeypot
+  if (document.getElementById("honeypot").value !== "") return;
+
+  const templateParams = {
+    nom: this.nom.value,
+    prenom: this.prenom.value,
+    email: this.email.value,
+    telephone: this.telephone.value,
+    message: this.message.value,
+    time: new Date().toLocaleString("fr-FR"),
+  };
+
+  emailjs.send("service_bsw4pwe", "template_xtrmys1", templateParams) 
+    .then(() => {
+      alert("Message envoyé !");
+      this.reset();
+    })
+    .catch((err) => {
+      console.error("Erreur EmailJS :", err);
+      alert("Une erreur est survenue, réessayez plus tard.");
+    });
+});
