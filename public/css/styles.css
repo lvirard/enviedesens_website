@@ -13,6 +13,7 @@ body {
   --fond: #fdfaf7;
   --texte: #243046;
 }
+
 /* GLOBAL */
 /* Fond inspiré flyer */
 body {
@@ -47,6 +48,7 @@ strong {
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: transform 0.3s ease;
+  overflow: visible;
 }
 .header.hidden { transform: translateY(-100%); }
 
@@ -273,8 +275,6 @@ h2 {
   margin-right: 10px;
 }
 
-
-
 .card-flip {
   margin: 1.5rem auto 1rem; /* centre horizontalement */
   background: var(--orange);
@@ -440,6 +440,9 @@ h2 {
 }
 
 .contact-direct {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
   border-radius: 2rem;
@@ -481,6 +484,9 @@ h2 {
 
 .contact-form input,
 .contact-form textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   padding: 1rem 1.5rem;
   border: 2px solid #e5e5e5;
   border-radius: 1.2rem;
@@ -602,11 +608,63 @@ h2 {
 /* HEADER */
 @media (max-width: 768px) {
   .burger { display: block; }
-  .nav { display: none; }
-  
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+  }
+  .nav.ouvert {
+    display: block;
+  }
+  .nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav a {
+    font-size: 1.1rem;
+    display: block;
+    padding: 0.3rem 0;
+  }
   .qui-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2rem; }
 }
+
+/* PRESENTATION */
+@media (max-width: 768px) {
+  .hero {
+    align-items: flex-start;   /* pousse le contenu vers le haut */
+    padding-top: 8rem;         /* espace sous le header fixe */
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3); /* ombre plus forte pour lisibilité */
+  }
+  .hero h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-height: 740px) {
+  .hero {
+    align-items: flex-start;
+    padding-top: 6rem;
+    min-height: auto;
+  }
+  .hero h1 {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+  }
+}
+
 
 /* OFFRES */
 /* Écrans larges (desktop) : 3 colonnes */
@@ -691,6 +749,20 @@ h2 {
     margin: 0 1rem;
   }
 }
+/* Très petits écrans */
+@media (max-width: 414px) {
+  .contact-form {
+    padding: 1.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem 1rem;   /* réduit le padding interne */
+    font-size: 0.95rem;
+  }
+}
 /* FOOTER */
 @media (max-width: 900px) {
   .footer-inner {
@@ -706,6 +778,7 @@ h2 {
 
   .footer-nav {
     align-items: center;
+    text-align: center;
   }
 }
 
